@@ -1,1 +1,2 @@
 # Multicloud
+A portfolio project demonstrating multi-cloud platform engineering: a unified dashboard that provisions and tears down compute resources across AWS, GCP, Azure, and Oracle Cloud through a single interface, backed by Terraform-driven infrastructure-as-code. Built to explore the orchestration challenges of abstracting multiple cloud providers behind one control plane — provider-agnostic provisioning, per-tenant state isolation, async job handling, and cost normalization — while staying strictly within each provider's free tier so it costs nothing to run or demo.
