@@ -1,4 +1,4 @@
-# Multi-Cloud Free-Tier Platform (portfolio project)
+# Multi-Cloud Free-Tier Platform (WIP)
 
 A single dashboard that provisions compute on AWS, GCP, Azure, or Oracle Cloud —
 strictly within each provider's free tier — via Terraform, with a unified
