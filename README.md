@@ -29,7 +29,7 @@ production billing/brokerage product.** See [Known limitations](#known-limitatio
 
 ---
 
-## Explain it like I'm 10
+## Explaination
 
 Imagine there are four giant computer stores in the world: **Amazon (AWS)**,
 **Google (GCP)**, **Microsoft (Azure)**, and **Oracle**. Each store will rent
