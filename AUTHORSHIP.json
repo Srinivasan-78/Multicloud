@@ -1,0 +1,192 @@
+{
+  "schema": "authormark/manifest/1",
+  "author": "Srinivasan Vijayaraghavan",
+  "email": "srinivasan.shyam2000@gmail.com",
+  "github": "https://github.com/Srinivasan-78",
+  "sealedAt": "2026-08-29T13:21:42.861Z",
+  "fileCount": 36,
+  "digest": "1fcc4e110162d8cf44c3f35e0b3ec975d7e57fa340c033fb0adcce3e84d2cd5a",
+  "proof": "bf6f74f991002d52a4865bcc04754a60f845401fcd2e4da0c1715f978ef0b186",
+  "files": [
+    {
+      "path": ".github/workflows/authormark.yml",
+      "sha256": "b5cab2b0d7b18cd416758ec39f9677144704f615095f279d00e6f47ed2164e11",
+      "bytes": 1138
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "6f4bb78900bf58971b266a4df35ff4137cd210494cc71089ecc7f3feb6130012",
+      "bytes": 1511
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "a4f80ec424ce2382e519318c7cdbc38276dc8575a452e566c67f21c1eb0ca882",
+      "bytes": 822
+    },
+    {
+      "path": "README.md",
+      "sha256": "e187bab36640ce836bc2b7c67c77d44ef10bd211b9ab0c47833849dbdcef8496",
+      "bytes": 19443
+    },
+    {
+      "path": "api/Dockerfile",
+      "sha256": "b33ff5e65b38f2784c9737f9a4247fd18daeee8c0d577f6f6b11fe8495fe0a04",
+      "bytes": 1248
+    },
+    {
+      "path": "api/alembic/env.py",
+      "sha256": "e33318eaec0dac74d69914c70ea88ccf5538f7ec42a0de3ba3475a4e730bee60",
+      "bytes": 1951
+    },
+    {
+      "path": "api/app/__init__.py",
+      "sha256": "02e8bc712e43771df90c200f9823bac45c3990a009c826d07e1ece3a16a99c3a",
+      "bytes": 788
+    },
+    {
+      "path": "api/app/core/__init__.py",
+      "sha256": "02e8bc712e43771df90c200f9823bac45c3990a009c826d07e1ece3a16a99c3a",
+      "bytes": 788
+    },
+    {
+      "path": "api/app/core/beat_schedule.py",
+      "sha256": "aac8457b6f4868edd9150f34ceb2b5340b4a58141b7a66e91d71eab3c6001f30",
+      "bytes": 1056
+    },
+    {
+      "path": "api/app/core/celery_app.py",
+      "sha256": "cb66235c8bf47b865b5569a9ac47c20355aaab9e479ff10fb4b48b1f5697cfe5",
+      "bytes": 1128
+    },
+    {
+      "path": "api/app/core/config.py",
+      "sha256": "3a11887743d8ac7f1a9d63f1f4c492d126edf19ced24026292dbcb0585e0951f",
+      "bytes": 1193
+    },
+    {
+      "path": "api/app/core/db.py",
+      "sha256": "ac44c0e6c3ac28f9ff0f41cd2b5b8125eb8efc404ceed1ebf41e532a7cb29294",
+      "bytes": 1188
+    },
+    {
+      "path": "api/app/core/deps.py",
+      "sha256": "0767c5384c861a0ae6244c3e68bd66d873d4eb840d413c9f479be21ea705f58d",
+      "bytes": 1559
+    },
+    {
+      "path": "api/app/core/free_tier.py",
+      "sha256": "4a5eea4b5016543461fda23eb665c98aeca74ff8234be2e2d5501421000d8b4f",
+      "bytes": 2516
+    },
+    {
+      "path": "api/app/core/security.py",
+      "sha256": "e4bbb94dc7e19f6142ce8af8d170a3fcd0de8e0feecc8293383b9af12de8ca59",
+      "bytes": 1884
+    },
+    {
+      "path": "api/app/main.py",
+      "sha256": "b7dd2ffd8d22b8246ea1a27ae5d4de92f9356b5c8748815001f51667b0b883e8",
+      "bytes": 1391
+    },
+    {
+      "path": "api/app/models/__init__.py",
+      "sha256": "02e8bc712e43771df90c200f9823bac45c3990a009c826d07e1ece3a16a99c3a",
+      "bytes": 788
+    },
+    {
+      "path": "api/app/models/models.py",
+      "sha256": "0db270a8a1aeec236ae8f751a269b467e1aabff662d7c7055b8c360afc375ac8",
+      "bytes": 3317
+    },
+    {
+      "path": "api/app/models/schemas.py",
+      "sha256": "95fe533645da092ce0784e31099b0dda9c23015e9e2ae08d4e79ae3aeb772f28",
+      "bytes": 1859
+    },
+    {
+      "path": "api/app/routers/__init__.py",
+      "sha256": "02e8bc712e43771df90c200f9823bac45c3990a009c826d07e1ece3a16a99c3a",
+      "bytes": 788
+    },
+    {
+      "path": "api/app/routers/auth.py",
+      "sha256": "ff3d773e7e41ec86acb0c8933ecddd4216e919fc0ac3b55b0fb31b77e7a1c324",
+      "bytes": 2082
+    },
+    {
+      "path": "api/app/routers/credentials.py",
+      "sha256": "2c1ae42a6ff169fefe5bab05f5eff50298c2ef3c814e80f60debf78b11065de2",
+      "bytes": 2358
+    },
+    {
+      "path": "api/app/routers/resources.py",
+      "sha256": "a3cbc5ddeddeb973af3b429bf9c5e92d0c686b4a3cea06929d17f628f18cc1a2",
+      "bytes": 4583
+    },
+    {
+      "path": "api/app/services/__init__.py",
+      "sha256": "02e8bc712e43771df90c200f9823bac45c3990a009c826d07e1ece3a16a99c3a",
+      "bytes": 788
+    },
+    {
+      "path": "api/app/services/pricing.py",
+      "sha256": "70e4f091f52b4c1c97a13268d946250b8c323c6ad8b57ce2bff4b2cb667a685b",
+      "bytes": 1614
+    },
+    {
+      "path": "api/app/services/tasks.py",
+      "sha256": "dfebd5fe4f526d3b779f5e242863f5acb9570abdee03d954176ab8cf245e46e2",
+      "bytes": 3703
+    },
+    {
+      "path": "api/app/services/terraform_runner.py",
+      "sha256": "d0ed8de3df3f77d4a4a5afbc61f38b0d0de54fe2bf216b806848c92500572e86",
+      "bytes": 3274
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "e57e8ffa974ca30d80ae1ebeb19b2b180bc566d0e6ffe7066d66b289ca1eb652",
+      "bytes": 1758
+    },
+    {
+      "path": "frontend/app/dashboard/page.js",
+      "sha256": "4f5c36d844e63aade24e86f47b5cba7beada5a545aaea21988da40d2603ba228",
+      "bytes": 5746
+    },
+    {
+      "path": "frontend/app/layout.js",
+      "sha256": "d34976fee00c697f6705e951901ec380e6a4f13a2dca73d1b44de8ca173f1799",
+      "bytes": 1122
+    },
+    {
+      "path": "frontend/app/login/page.js",
+      "sha256": "d22bd5a5b96c637e688e9f3fd69033cc0c0bef5e7af0e422e7b029944d57cf1e",
+      "bytes": 2779
+    },
+    {
+      "path": "frontend/app/page.js",
+      "sha256": "b3af28d9bac0dd4e78ff7bb939bb73163e962ab6e2d5e3111444335f84e3e7ba",
+      "bytes": 1089
+    },
+    {
+      "path": "frontend/lib/api.js",
+      "sha256": "18e888b856be25d4e5bce0d636d87250ee9e14c797745bb97742d7b47617beda",
+      "bytes": 2066
+    },
+    {
+      "path": "frontend/next.config.js",
+      "sha256": "d720c83e0362bf1a77956dbb7823de84784713b3e64e7f804c643a9c4a29a40d",
+      "bytes": 889
+    },
+    {
+      "path": "terraform/modules/aws/main.tf",
+      "sha256": "99015c8337c0193d8de21e45b974422c3144926baff254168a79440476e16bc5",
+      "bytes": 2627
+    },
+    {
+      "path": "terraform/modules/gcp/main.tf",
+      "sha256": "09be8381719d7fe81234d371a7323118f6139321dc78d3a54e4ae5ff3baa2673",
+      "bytes": 2402
+    }
+  ]
+}

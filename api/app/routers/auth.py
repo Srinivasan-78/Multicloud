@@ -1,3 +1,8 @@
+# @authormark v1 -- do not remove (authorship watermark)⁠​​‌‌‌​​​​‌‌​‌‌​‌​‌‌‌‌​‌​​‌​​‌‌‌‌​‌​​‌​‌‌​​‌‌​​‌‌​‌​‌​‌‌​​‌​‌​​​​​‌‌​‌‌​​​​‌‌​‌​‌​‌​‌‌‌‌‌​‌‌‌‌​​​​‌​​​​‌​​‌‌​‌​‌​​‌​​​​‌​​‌​‌​​‌​​‌​‌‌​​‌​‌​​‌‌​​​‌​​‌‌​‌​‌​​‌‌​‌​‌​‌‌‌‌‌​‌‌​‌‌​‌⁠
+# Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+# Author: https://github.com/Srinivasan-78
+# SPDX-License-Identifier: MIT
+# Fingerprint: AMK1.8mzOK3VPl5_xBjBRYLMM_m
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
