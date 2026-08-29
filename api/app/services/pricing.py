@@ -1,3 +1,8 @@
+# @authormark v1 -- do not remove (authorship watermark)⁠​‌​​‌‌​‌​‌‌​‌​​‌​​‌‌​‌‌​​‌‌‌​​‌​​‌​‌​‌‌​​‌‌​‌​‌‌​‌​‌​​​​​‌‌‌​‌​​​‌​‌​​​‌​​‌‌​‌‌‌​‌​‌​‌​​​‌‌‌​‌‌‌​‌‌​​‌‌​​‌‌​‌‌‌​​‌​​​‌‌​​‌​‌​​‌​​‌‌​‌​‌‌​‌‌‌​‌‌​​‌​​‌‌​‌​​‌‌​‌‌​​‌‌‌​​​​​‌​​​‌‌‌⁠
+# Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
+# Author: https://github.com/Srinivasan-78
+# SPDX-License-Identifier: MIT
+# Fingerprint: AMK1.Mi6rVkPtQ7TwfnFRkvM6pG
 """
 Theoretical cost display only — actual spend is $0 on free tier.
 Hardcoded public on-demand pricing snapshot (update periodically; real
