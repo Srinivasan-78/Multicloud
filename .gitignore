@@ -1,0 +1,22 @@
+# Real config, built from api/.env.example. Holds JWT_SECRET and FERNET_KEY,
+# and FERNET_KEY decrypts every stored cloud credential.
+.env
+api/.env
+
+# Terraform per-tenant workspaces and state
+terraform/workspaces/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Next.js
+node_modules/
+frontend/.next/
+frontend/out/

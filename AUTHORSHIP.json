@@ -3,10 +3,10 @@
   "author": "Srinivasan Vijayaraghavan",
   "email": "srinivasan.shyam2000@gmail.com",
   "github": "https://github.com/Srinivasan-78",
-  "sealedAt": "2026-08-29T13:21:42.861Z",
+  "sealedAt": "2026-08-30T21:33:21.386Z",
   "fileCount": 36,
-  "digest": "1fcc4e110162d8cf44c3f35e0b3ec975d7e57fa340c033fb0adcce3e84d2cd5a",
-  "proof": "bf6f74f991002d52a4865bcc04754a60f845401fcd2e4da0c1715f978ef0b186",
+  "digest": "fc7dd5b561c9594c3225ae3d1b52d72d4c9419c29daf743ff7863c19476db2c0",
+  "proof": "85c1ccc45878364443db28cb001a9a0ff7c2f929250578a0217e794b03ff3d81",
   "files": [
     {
       "path": ".github/workflows/authormark.yml",
@@ -25,8 +25,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "e187bab36640ce836bc2b7c67c77d44ef10bd211b9ab0c47833849dbdcef8496",
-      "bytes": 19443
+      "sha256": "5040912fac5600879eab664ce0f64633bedf398f7b76085ccd26f7caba19b3be",
+      "bytes": 19416
     },
     {
       "path": "api/Dockerfile",
@@ -75,8 +75,8 @@
     },
     {
       "path": "api/app/core/free_tier.py",
-      "sha256": "4a5eea4b5016543461fda23eb665c98aeca74ff8234be2e2d5501421000d8b4f",
-      "bytes": 2516
+      "sha256": "e6b0a7ebccc06c2b07c0f3ee2289d460880a662029674963e62b53d77025a40c",
+      "bytes": 3100
     },
     {
       "path": "api/app/core/security.py",
@@ -115,13 +115,13 @@
     },
     {
       "path": "api/app/routers/credentials.py",
-      "sha256": "2c1ae42a6ff169fefe5bab05f5eff50298c2ef3c814e80f60debf78b11065de2",
-      "bytes": 2358
+      "sha256": "3804fcc6cf8eb0a3df9244efdcf6c168eaa29d237e43579404a5b9f1eaaa5afc",
+      "bytes": 2047
     },
     {
       "path": "api/app/routers/resources.py",
-      "sha256": "a3cbc5ddeddeb973af3b429bf9c5e92d0c686b4a3cea06929d17f628f18cc1a2",
-      "bytes": 4583
+      "sha256": "2401a2a308485e834f5510d099840e83cdc098d4c0a1ff0565903a977470c7bf",
+      "bytes": 4757
     },
     {
       "path": "api/app/services/__init__.py",
@@ -150,8 +150,8 @@
     },
     {
       "path": "frontend/app/dashboard/page.js",
-      "sha256": "4f5c36d844e63aade24e86f47b5cba7beada5a545aaea21988da40d2603ba228",
-      "bytes": 5746
+      "sha256": "f42b36a13eafcc18580401a7f8e33be7144259f734086350fa23dd35ba0f495b",
+      "bytes": 5624
     },
     {
       "path": "frontend/app/layout.js",

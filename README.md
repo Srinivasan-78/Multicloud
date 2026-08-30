@@ -1,9 +1,9 @@
 <!--
-  @authormark v1 -- do not remove (authorship watermark)⁠​‌​​‌‌‌​​‌​​‌​​‌​‌​​‌‌​‌​‌‌​‌​​​​‌‌‌‌​​‌​‌‌​​​​‌​‌‌‌​​‌​​‌‌​​​​‌​‌‌​​‌‌‌​‌​‌‌​‌​​​‌‌‌​​​​‌‌‌​​​​​‌​‌​​‌‌​‌‌​​‌‌‌​‌​‌​‌​​​‌‌​​​‌‌​​‌‌‌​​​​‌​‌​​‌‌​‌​‌​‌‌​​‌​‌‌​​​​‌​‌​​‌‌​‌​​​‌​‌⁠
+  @authormark v1 -- do not remove (authorship watermark)
   Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
   Author: https://github.com/Srinivasan-78
   SPDX-License-Identifier: MIT
-  Fingerprint: AMK1.NIMhyaragZ8pSgTc8SVXSE
+  Fingerprint: AMK1.Lwva60agHDXdVljjnZuEdO
 -->
 # Multi-Cloud Free-Tier Platform (WIP)
 
@@ -337,22 +337,35 @@ python3 -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().
 Paste that key into `api/.env` as `FERNET_KEY`, and set a `JWT_SECRET` to any
 long random string.
 
-**2. Start everything**
+**2. Start the backend**
 
 ```bash
 docker compose up --build
 ```
 
-This starts six containers: `postgres`, `redis`, `api`, `worker`, `beat`, and
-your frontend dev server.
+This starts five containers: `postgres`, `redis`, `api`, `worker` and `beat`.
 
-**3. Open it**
+**3. Start the dashboard**
+
+The frontend is not in Docker Compose — it runs as an ordinary Next.js dev
+server, in a second terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+It talks to `http://localhost:8000` by default; set `NEXT_PUBLIC_API_BASE` if
+your API is somewhere else.
+
+**4. Open it**
 
 - Dashboard: <http://localhost:3000>
 - Interactive API docs (Swagger): <http://localhost:8000/docs>
 - Health check: <http://localhost:8000/health>
 
-**4. Use it**
+**5. Use it**
 
 ```mermaid
 flowchart LR
@@ -450,8 +463,11 @@ docker-compose.yml             postgres, redis, api, worker, beat
   (`services/pricing.py`), not a live pricing API call — real spend is $0 on
   free tier regardless.
 - **Azure/Oracle modules are stubs** — same pattern as AWS/GCP, not yet
-  implemented in this scaffold. They appear in the catalog and will fail at
-  the Terraform step.
+  implemented in this scaffold. Their free-tier specs are real, so they still
+  appear in `/resources/catalog`, but flagged `implemented: false`: the
+  dropdown disables them and `POST /resources` rejects them with a 400 rather
+  than queueing a job that dies at the Terraform step after you have already
+  handed over cloud credentials.
 - **Credential storage** uses Fernet symmetric encryption with a single key in
   an env var — fine for a demo, not how you'd do tenant secret isolation in
   production (you'd want per-tenant KMS keys or a real secrets manager).
