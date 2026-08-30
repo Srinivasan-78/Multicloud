@@ -1,14 +1,19 @@
-# @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​‌‌​​​‌​​​​​‌​‌​​‌​‌​​‌​‌​‌​‌​‌​​‌‌‌‌​‌‌​​​​‌​‌‌‌​​​​​‌​​​​​‌​‌‌​‌‌​​​‌​‌​​​​​‌​​‌‌‌‌​‌‌​‌‌​‌​‌‌​​​‌‌​‌‌​​‌​‌​​‌​‌‌​‌​‌‌​‌​​‌​‌‌‌​​‌​​​‌‌​‌​​​​‌‌​​​‌​‌‌​​‌‌‌​‌‌​​​‌​​‌‌‌​‌‌​⁠
+# @authormark v1 -- do not remove (authorship watermark)
 # Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
 # Author: https://github.com/Srinivasan-78
 # SPDX-License-Identifier: MIT
-# Fingerprint: AMK1.lAJUOapAlPOmce-ir41gbv
+# Fingerprint: AMK1.g6Pn3HTwmKk4JBp7_Js1vy
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
 from app.core.deps import get_current_user
-from app.core.free_tier import validate_request, FREE_TIER_ALLOWLIST
+from app.core.free_tier import (
+    validate_request,
+    normalize_provider,
+    FREE_TIER_ALLOWLIST,
+    IMPLEMENTED_PROVIDERS,
+)
 from app.models.models import Resource, ResourceStatus, User
 from app.models.schemas import ResourceCreate, ResourceOut, CostEstimate
 from app.services import pricing
@@ -20,8 +25,19 @@ router = APIRouter(prefix="/resources", tags=["resources"])
 
 @router.get("/catalog")
 def catalog():
-    """What's actually provisionable — drives the frontend dropdown."""
-    return FREE_TIER_ALLOWLIST
+    """What's actually provisionable — drives the frontend dropdown.
+
+    `implemented` is false for providers that are on the free-tier allowlist
+    but have no terraform module yet. The dropdown needs that flag: offering a
+    choice that always fails is worse than not offering it.
+    """
+    return {
+        provider: {
+            "implemented": provider in IMPLEMENTED_PROVIDERS,
+            "resource_types": types,
+        }
+        for provider, types in FREE_TIER_ALLOWLIST.items()
+    }
 
 
 @router.get("/catalog/estimate", response_model=list[CostEstimate])
@@ -54,11 +70,16 @@ def create_resource(
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+    # Store the canonical name, not what the caller typed. The workspace path,
+    # the credential lookup and terraform/modules/<provider> are all lowercase,
+    # so a resource saved as "AWS" could never match any of them.
+    provider = normalize_provider(payload.provider)
+
     existing_count = (
         db.query(Resource)
         .filter(
             Resource.user_id == user.id,
-            Resource.provider == payload.provider,
+            Resource.provider == provider,
             Resource.status.in_([ResourceStatus.pending, ResourceStatus.provisioning, ResourceStatus.active]),
         )
         .count()
@@ -66,15 +87,15 @@ def create_resource(
     if existing_count >= settings.max_resources_per_provider:
         raise HTTPException(
             status_code=429,
-            detail=f"resource cap reached for {payload.provider} (max {settings.max_resources_per_provider})",
+            detail=f"resource cap reached for {provider} (max {settings.max_resources_per_provider})",
         )
 
     resource = Resource(
         user_id=user.id,
-        provider=payload.provider,
+        provider=provider,
         resource_type=payload.resource_type,
         status=ResourceStatus.pending,
-        terraform_workspace=f"{user.id}/{payload.provider}",
+        terraform_workspace=f"{user.id}/{provider}",
         spec=spec,
     )
     db.add(resource)

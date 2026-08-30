@@ -1,9 +1,9 @@
 /*!
- * @authormark v1 -- do not remove (authorship watermark)⁠​‌‌​​​​‌​‌‌​‌‌​​​‌​‌‌​‌​​‌‌‌​​​‌​‌​​‌​​​​‌‌​​​‌​​‌‌​‌‌​​​​‌​‌‌​‌​‌​​‌‌‌‌​‌​‌‌​​‌​‌​​​‌​​​‌​‌​​‌‌​‌​‌​‌‌​​‌​‌​​​​​‌‌‌​​‌​​‌‌​​‌​‌​‌‌‌​​‌​​​‌‌​​‌​​‌​‌​‌‌‌​‌‌​​‌‌​​‌​​​‌​​​​‌‌​‌‌​⁠
+ * @authormark v1 -- do not remove (authorship watermark)
  * Copyright (c) 2026 Srinivasan Vijayaraghavan <srinivasan.shyam2000@gmail.com>
  * Author: https://github.com/Srinivasan-78
  * SPDX-License-Identifier: MIT
- * Fingerprint: AMK1.alZqHbl-OYDSVPrer2WfD6
+ * Fingerprint: AMK1.8XI2VfV825chdzt8ueSfHZ
  */
 "use client";
 import { useEffect, useState } from "react";
@@ -66,13 +66,20 @@ export default function Dashboard() {
         <h2 style={h2}>Provision (free-tier only, server-enforced)</h2>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           <select value={provider} onChange={(e) => setProvider(e.target.value)} style={inputStyle}>
-            {Object.keys(catalog).map((p) => <option key={p} value={p}>{p}</option>)}
+            {Object.keys(catalog).map((p) => (
+              /* Providers without a terraform module are disabled rather than
+                 hidden: the free-tier spec is real and worth showing, but
+                 selecting one would only ever end in status=error. */
+              <option key={p} value={p} disabled={!catalog[p]?.implemented}>
+                {p}{catalog[p]?.implemented ? "" : " (module not built yet)"}
+              </option>
+            ))}
           </select>
           <button onClick={provision} style={buttonStyle}>Spin up compute</button>
         </div>
-        {catalog[provider]?.compute && (
+        {catalog[provider]?.resource_types?.compute && (
           <p style={{ fontSize: 13, color: "#8b949e", marginTop: 8 }}>
-            Locked spec: {JSON.stringify(catalog[provider].compute)}
+            Locked spec: {JSON.stringify(catalog[provider].resource_types.compute)}
           </p>
         )}
         {error && <div style={{ color: "#f85149", marginTop: 8 }}>{error}</div>}
